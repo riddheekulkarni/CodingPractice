@@ -1,0 +1,15 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
+
+int main() {
+    string data = "25 Alice";
+    int age;
+    string name;
+
+    istringstream iss(data);
+    iss >> age >> name;
+
+    cout << "Age: " << age << "\nName: " << name;
+}

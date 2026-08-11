@@ -1,0 +1,15 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
+
+int main() {
+    int age = 30;
+    string name = "Bob";
+
+    ostringstream oss;
+    oss << age << " " << name;
+
+    string result = oss.str();
+    cout << result;
+}

@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+</head>
+<body>
+
+
+{% for x in mymembers %}
+  <h1>{{ x.firstname }} {{ x.lastname }}</h1>
+{% endfor %}
+
+</body>
+</html>

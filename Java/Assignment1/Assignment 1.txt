@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+class Book {
+    String title;
+    String author;
+    int quantity;
+
+    Book(String title, String author, int quantity) {
+        this.title = title;
+        this.author = author;
+        this.quantity = quantity;
+    }
+}
+
+public class LibrarySystem 
+{
+    public Book[] books = 
+    {
+        new Book("The Alchemist", "Paulo Coelho", 3),
+        new Book("To Kill a Mockingbird", "Harper Lee", 2),
+        new Book("1984", "George Orwell", 1),
+        new Book("The Great Gatsby", "F. Scott Fitzgerald", 1),
+        new Book("Sapiens", "Yuval Noah Harari", 2)
+    };
+
+    public void listBooks() 
+    {
+        System.out.println("\nAvailable Books:");
+        for (int i = 0; i < books.length; i++) 
+        {
+            if (books[i].quantity > 0) 
+            {
+                System.out.println("- " + books[i].title + " by " + books[i].author + " (Copies: " + books[i].quantity + ")");
+            }
+        }
+    }
+
+    public void getBook(String title) 
+    {
+        boolean found = false;
+        for (int i = 0; i < books.length; i++) 
+        {
+            if (books[i].title.equals(title)) 
+            {
+                found = true;
+                if (books[i].quantity > 0) 
+                {
+                    books[i].quantity--;
+                    System.out.println("Book \"" + books[i].title + "\" issued successfully.");
+                } 
+                else 
+                {
+                    System.out.println("No copies available right now.");
+                }
+                break;
+            }
+        }
+        if (!found) 
+        {
+            System.out.println("Book not found.");
+        }
+    }
+
+    public void returnBook(String title) 
+    {
+        boolean found = false;
+        for (int i = 0; i < books.length; i++) 
+        {
+            if (books[i].title.equals(title)) 
+            {
+                books[i].quantity++;
+                found = true;
+                System.out.println("Book \"" + books[i].title + "\" returned successfully.");
+                if(books[i].quantity > 0)
+                {
+                    System.out.println("Book is now available");
+                }
+                break;
+            }
+        }
+        if (!found) 
+        {
+            System.out.println("Book not found in system.");
+        }
+    }
+    
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        LibrarySystem library = new LibrarySystem(); 
+        int choice;
+
+        do {
+            System.out.println("\n1. List books");
+            System.out.println("2. Get a book");
+            System.out.println("3. Return a book");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); 
+
+            if (choice == 1) 
+            {
+                library.listBooks();
+            } 
+            else if (choice == 2) 
+            {
+                System.out.print("Enter book title to get: ");
+                String getTitle = sc.nextLine();
+                library.getBook(getTitle);
+            } 
+            else if (choice == 3) 
+            {
+                System.out.print("Enter book title to return: ");
+                String returnTitle = sc.nextLine();
+                library.returnBook(returnTitle);
+            } 
+            else if (choice == 4) 
+            {
+                System.out.println("Exiting");
+            } 
+            else 
+            {
+                System.out.println("Invalid choice");
+            }
+        } while (choice != 4);
+
+        sc.close();
+    }
+}

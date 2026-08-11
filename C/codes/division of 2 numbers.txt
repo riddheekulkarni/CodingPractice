@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    int a,b,division;
+    printf("enter value of a:");
+    scanf("%d",&a);
+    printf("enter value of b:");
+    scanf("%d",&b);
+    division=a/b;
+    printf("the division of two numbers a and b is %d",division);
+}

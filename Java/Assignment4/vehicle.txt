@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class Vehicle 
+{
+    String vehicleNo;
+    String model;
+    String owner;
+    double price;
+
+    void inputDetails() 
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Vehicle Number: ");
+        vehicleNo = sc.nextLine();
+        System.out.print("Enter Model: ");
+        model = sc.nextLine();
+        System.out.print("Enter Owner Name: ");
+        owner = sc.nextLine();
+        System.out.print("Enter Price: ");
+        price = sc.nextDouble();
+    }
+
+    void displayDetails() 
+    {
+        System.out.println("\n--- Vehicle Details ---");
+        System.out.println("Vehicle No: " + vehicleNo);
+        System.out.println("Model: " + model);
+        System.out.println("Owner: " + owner);
+        System.out.println("Price: " + price);
+    }
+}
+
+public class VehicleManagementSystem 
+{
+    public static void main(String[] args) 
+    {
+        Vehicle v = new Vehicle();
+        v.inputDetails();
+        v.displayDetails();
+    }
+}

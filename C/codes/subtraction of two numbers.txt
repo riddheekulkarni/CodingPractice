@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    int a,b,subtraction;
+    printf("enter value of a:");
+    scanf("%d",&a);
+    printf("enter value of b:");
+    scanf("%d",&b);
+    subtraction=a-b;
+    printf("the subraction of two numbers a and b is %d",subraction);
+}

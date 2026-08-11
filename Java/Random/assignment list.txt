@@ -1,0 +1,19 @@
+java:
+Assignment 1: basic classes and stuff
+Assignment 2: Enum, this pointer
+Assignment 3: inheritance
+Assignment 4: interface
+Assignment 5: Linking multiple packages
+Assignment 6: thread
+Assignment 7: array list, link list
+Assignment 8: File handling
+Assignment 9: Data base
+Assignment 10: registration form
+Assignment 11: Client - Server connectivity
+Assignment 12: RMI
+
+All assignments without looking and without net writing
+try remaining 38 codes
+Read all ppts
+
+types of this, aggregation, Server client end part

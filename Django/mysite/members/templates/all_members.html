@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+    List of all members
+{% endblock %}
+
+{% block content %}
+    <div class="mycard">
+        <h1>Members</h1>
+        <ul>
+            {% for m in mymembers %}
+                <li><a href="/details/{{m.id}}/">{{m.firstname}} {{m.lastname}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

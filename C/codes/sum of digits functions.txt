@@ -1,0 +1,18 @@
+#include <stdio.h>
+void sum(int a)
+{
+	int b,c;
+	b=a/10;
+	c=a%10;
+	b=b+c;
+	printf("the sum of the digits of the number entered is %d",b);
+}
+
+int main()
+{
+	int x;
+	printf("please enter a two digit number:");
+	scanf("%d",&x);
+	sum(x);
+	return 0;
+}

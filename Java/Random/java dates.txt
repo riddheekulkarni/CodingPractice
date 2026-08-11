@@ -1,0 +1,12 @@
+Assignment 9: data enter from java code to database
+27 java final mocktest
+29: final mini projet evaluation
+13: evaluation of remaining assignment, 80% mini project
+15: 80% mini project
+
+Assignment 7: linklist: notes
+Assignment 8: file handling: notes
+Assignment 9: JDBC: notes
+Assignment 10: registration form
+Assignment 11: client-server: notes
+Assignment 12: RMI

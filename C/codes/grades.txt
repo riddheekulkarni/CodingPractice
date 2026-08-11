@@ -1,0 +1,26 @@
+int main()
+{
+    int marks;
+    printf("enter marks out of 100:");
+    scanf("%d",&marks);
+    if(marks>=90)
+    {
+        printf("you have recieved A grade");
+    }
+    else if(marks>=80)
+    {
+        printf("you have recieved B grade");
+    }
+    else if(marks>=60)
+    {
+        printf("you have recieved C grade");
+    }
+    else if(marks>=40)
+    {
+        printf("you have recieved D grade");
+    }
+    else
+    {
+        printf("you failed");
+    }
+}

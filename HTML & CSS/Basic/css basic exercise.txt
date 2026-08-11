@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            h2
+            {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="color: purple;">Make me purple</h1>
+        <h2>Make me green</h2>
+        <h3>Make me orange</h3>
+    </body>
+</html>
+
+
+style.css
+h3
+{
+    color: orange;
+}

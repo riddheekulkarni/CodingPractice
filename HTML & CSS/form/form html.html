@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Registration Form</title>
+        <link rel="stylesheet" href="form css.css">
+    </head>
+    <body>
+        <h1>Student Registration Form</h1>
+        <form id="regform">
+            <label>Full Name:</label>
+            <input type="text" id="name" required placeholder="Enter full name">
+            <br><br>
+
+            <label>Phone:</label>
+            <input type="tel" id="phone" required placeholder="Enter phone number">
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" id="email" required placeholder="Enter email id">
+            <br><br>
+
+            <label>Password:</label>
+            <input type="password" id="password" required placeholder="Enter password">
+            <br><br>
+
+            <label>Age:</label>
+            <input type="number" id="age" required placeholder="Enter age">
+            <br><br>
+
+            <label>Date of Birth</label>
+            <input type="date" id="dob" required>
+            <br><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label><br>
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label><br>
+            <input type="radio" name="gender" value="other" id="other">
+            <label for="other">Other</label>
+            <br><br>
+
+            <label>Hobbies:</label><br>
+            <input type="checkbox" value="reading" id="reading">
+            <label for="reading">Reading</label><br>
+            <input type="checkbox" value="writing" id="writing">
+            <label for="writing">Writing</label><br>
+            <input type="checkbox" value="dancing" id="dancing">
+            <label for="dancing">Dancing</label><br>
+            <input type="checkbox" value="singing" id="singing">
+            <label for="singing">Singing</label><br>
+            <input type="checkbox" value="painting" id="painting">
+            <label for="painting">Painting</label><br>
+            <br>
+
+            <label>Favorite Color:</label>
+            <input type="color" id="color">
+            <br><br>
+
+            <label>Course</label>
+            <select id="course" required>
+                <option value="" selected disabled>Select a course</option>
+                <option>BCA</option>
+                <option>BSc</option>
+                <option>BA</option>
+                <option>Btech</option>
+            </select>
+            <br><br>
+
+            <label>Address</label>
+            <br>
+            <textarea id="address" rows="4" cols="50" required placeholder="Enter address"></textarea>
+            <br><br>
+
+            <label>Upload Profile Picture:</label>
+            <input type="file" id="photo">
+            <br><br>
+
+            <label>Programming Skill Level:</label>
+            <input type="range" min="0" max="10" id="skills">
+            <br><br>
+
+            <label>Portfolio Website:</label>
+            <input type="url" id="website" placeholder="https://example.com">
+            <br><br>
+
+            <label>Preferred Contact Time:</label>
+            <input type="time" id="time">
+            <br><br>
+
+            <div class="button-group">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <script>
+            document.getElementById("regform").addEventListener("submit",function(e)
+            {
+                e.preventDefault();
+
+                let name=document.getElementById("name").value;
+                let phone=document.getElementById("phone").value;
+                let email=document.getElementById("email").value;
+                let age=document.getElementById("age").value;
+                let genderValue="Not selected";
+                if(document.getElementById("male").checked)
+                {
+                    genderValue=document.getElementById("male").value
+                }
+                if(document.getElementById("female").checked)
+                {
+                    genderValue=document.getElementById("female").value
+                }
+                if(document.getElementById("other").checked)
+                {
+                    genderValue=document.getElementById("other").value
+                }
+                let course=document.getElementById("course").value;
+                let address=document.getElementById("address").value;
+                let color=document.getElementById("color").value;
+                let skills=document.getElementById("skills").value;
+                let hobbies=[];
+                if(document.getElementById("reading").checked)hobbies.push("Reading");
+                if(document.getElementById("writing").checked)hobbies.push("Writing");
+                if(document.getElementById("dancing").checked)hobbies.push("Dancing");
+                if(document.getElementById("singing").checked)hobbies.push("Singing");
+                if(document.getElementById("painting").checked)hobbies.push("Painting");
+                let hobbyList=hobbies.join(", ") || "None";
+                let dob = document.getElementById("dob").value;
+                let website = document.getElementById("website").value;
+                let time = document.getElementById("time").value;
+
+                alert(
+                    "Registration Successful\n\n" +
+                    "Name: " + name + "\n" +
+                    "Phone: " + phone + "\n" +
+                    "Email: " + email + "\n" +
+                    "Password: " + document.getElementById("password").value + "\n" +
+                    "Age: " + age + "\n" +
+                    "Date of Birth: " + dob + "\n" +
+                    "Gender: " + genderValue + "\n" +
+                    "Hobbies: " + hobbyList + "\n" +
+                    "Favorite Color: " + color + "\n" +
+                    "Course: " + course + "\n" +
+                    "Address: " + address + "\n" +
+                    "Programming Skill Level: " + skills + "\n" +
+                    "Portfolio Website: " + website + "\n" +
+                    "Preferred Contact Time: " + time
+                );
+            });
+        </script>
+    </body>
+</html>

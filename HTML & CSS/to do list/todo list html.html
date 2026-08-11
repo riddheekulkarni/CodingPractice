@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-do List</title>
+        <link rel="stylesheet" href="todo list css.css">
+    </head>
+    <body>
+        <h1>To-do List</h1>
+        <div class="container">
+            <input type="text" id="taskinput" placeholder="Enter a task">
+            <button id="addBtn">Add Task</button>
+            <ul id="tasklist"></ul>
+        </div>
+        <script>
+            document.getElementById("addBtn").addEventListener("click",function()
+            {
+                let task=document.getElementById("taskinput").value;
+                if (task=="")
+                {
+                    alert("Please enter a task");
+                    return;
+                }
+                let li=document.createElement("li")
+                let taskText=document.createElement("span");
+                taskText.innerText=task;
+                li.appendChild(taskText);
+                let checkbox=document.createElement("input");
+                checkbox.type="checkbox";
+                li.prepend(checkbox);
+                checkbox.addEventListener("change", function()
+                {
+                    if(checkbox.checked)
+                    {
+                        taskText.style.textDecoration="line-through";
+                    }
+                    else
+                    {
+                        taskText.style.textDecoration="none";
+                    }
+                });
+                let deleteBtn=document.createElement("button");
+                deleteBtn.innerText="Delete";
+                deleteBtn.className="deleteBtn";
+                deleteBtn.addEventListener("click", function()
+                {
+                    li.remove();
+                });
+                li.appendChild(deleteBtn);
+                document.getElementById("tasklist").appendChild(li);
+                document.getElementById("taskinput").value = "";
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class base1;
+class Try
+{
+    private:
+    double radius;
+    
+    public:
+    void setradius(double rad)
+    {
+        radius=rad;
+    }
+    void getradius()
+    {
+        cout<< "The radius of the circle is " << radius << endl;   
+    }
+    friend void base1::area(Try&);
+};
+
+class base1
+{
+    public:
+    void area(Try& obj);
+};
+
+void base1::area(Try& obj)
+    {
+        cout <<"Area of circle with radius " << obj.radius << " is " << 3.14*obj.radius*obj.radius << endl;
+    }
+int main()
+{
+    Try obj1;
+    obj1.setradius(7);
+    obj1.getradius();
+    base1 obj2;
+    obj2.area(obj1);
+}

@@ -1,0 +1,15 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
+
+int main() {
+    stringstream ss;
+    ss << "40 Charlie";
+
+    int age;
+    string name;
+    ss >> age >> name;
+
+    cout << "Age: " << age << "\nName: " << name;
+}

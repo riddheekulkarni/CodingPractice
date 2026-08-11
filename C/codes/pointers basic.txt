@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main()
+{
+    int myage=17;
+    int* ptr=&myage;
+    printf("%d\n",myage);
+    printf("%p\n",&myage);
+    printf("%p\n",ptr);
+}

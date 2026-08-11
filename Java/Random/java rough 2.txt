@@ -1,0 +1,110 @@
+Write a Java program to demonstrate the creation and execution of multiple threads using both the thread class and runnable interface. The program should simulate real world scenario such as movie ticket booking systems where multiple users try to book tickets at the same time. Incorporate appropriate exception handling mechanisms to gracefully manage any potential errors that may occur during thread execution.
+
+import java.util.Scanner;
+
+class TicketCounter
+{
+    private int availableTickets;
+
+    public TicketCounter(int tickets)
+    {
+        this.availableTickets = tickets;
+    }
+
+    public synchronized void bookTicket(String customerName) throws Exception
+    {
+        if (availableTickets > 0)
+        {
+            System.out.println(customerName + " booked 1 ticket successfully!");
+            availableTickets--;
+            System.out.println("Tickets left: " + availableTickets);
+        }
+        else
+        {
+            throw new Exception("Sorry " + customerName + ", tickets are SOLD OUT!");
+        }
+    }
+}
+
+class TicketBookingThread extends Thread
+{
+    private TicketCounter counter;
+    private String customerName;
+
+    public TicketBookingThread(TicketCounter counter, String customerName)
+    {
+        this.counter = counter;
+        this.customerName = customerName;
+    }
+
+    @Override
+    public void run()
+    {
+        try
+        {
+            counter.bookTicket(customerName);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+class TicketBookingRunnable implements Runnable
+{
+    private TicketCounter counter;
+    private String customerName;
+
+    public TicketBookingRunnable(TicketCounter counter, String customerName)
+    {
+        this.counter = counter;
+        this.customerName = customerName;
+    }
+
+    @Override
+    public void run()
+    {
+        try
+        {
+            counter.bookTicket(customerName);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+public class MovieTicketBookingSystem
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter total tickets available: ");
+        int tickets = sc.nextInt();
+        System.out.print("Enter number of customers: ");
+        int customers = sc.nextInt();
+
+        TicketCounter counter = new TicketCounter(tickets);
+
+        System.out.println("\n=== Booking Started ===");
+
+        for (int i = 1; i <= customers; i++)
+        {
+            if (i % 2 == 0)
+            {
+                TicketBookingThread t = new TicketBookingThread(counter, "Customer-" + i);
+                t.start();
+            }
+            else
+            {
+                Thread t = new Thread(new TicketBookingRunnable(counter, "Customer-" + i));
+                t.start();
+            }
+        }
+
+        sc.close();
+    }
+}
